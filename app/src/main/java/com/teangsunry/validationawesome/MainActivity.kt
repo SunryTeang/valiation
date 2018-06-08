@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,9 +32,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         fab.setOnClickListener {
             val phoneNumberString = edt_phone.text.toString()
-            val status =EditextValidation.getInstance(this).isValidPhoneNumber(phoneNumberString)
-            Toast.makeText(this, ""+status, Toast.LENGTH_SHORT).show()
+            val status = EditextValidation.getInstance(this).isValidPhoneNumber(phoneNumberString)
+            Toast.makeText(this, "" + status, Toast.LENGTH_SHORT).show()
         }
+
+//        pinCodeView.setListener(this)
+
+        pinview.setPinviewCodeEventListener { PinviewCode, fromUser -> println("${PinviewCode.value} , $fromUser") }
     }
 
     override fun onBackPressed() {
@@ -86,4 +91,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
 }
