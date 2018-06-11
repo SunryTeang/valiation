@@ -46,6 +46,21 @@ dependencies {
         app:pinWidth="50dp" />
 
 ```
+## Attributes
+| Attribute | Use |
+| ----------| --- |
+| app:pinBackground | sets the background color for the pin view |
+| app:inputType | sets the input type for pin view, can be `text` `password` `number` |
+| app:pinTextColor | sets the text color of the edittext inside the pin view |
+| app:pinTextColorHint | sets the hint text color of the edittext inside the pin view |
+| app:password | true/false |
+| app:hint | sets the hint text of the pincode |
+| app:pinHeight | sets the height of the edittext inside pin view |
+| app:pinWidth | sets the width of the edittext inside pin view |
+| app:splitWidth | sets the width of the edittext outside pin view |
+| app:pinLength | set number of edittext of pin view |
+| app:pinTextSize | set edittext font size pin view |
+
 ## Listener get value from pincode
 ### Kotlin
 ```
@@ -83,20 +98,6 @@ public class MainActivityJava extends AppCompatActivity implements PinviewCode.P
 }
 
 ```
-## PinviewCode Attributes
-| Attribute | Use |
-| ----------| --- |
-| app:pinBackground | sets the background color for the pin view |
-| app:inputType | sets the input type for pin view, can be `text` `password` `number` |
-| app:pinTextColor | sets the text color of the edittext inside the pin view |
-| app:pinTextColorHint | sets the hint text color of the edittext inside the pin view |
-| app:password | true/false |
-| app:hint | sets the hint text of the pincode |
-| app:pinHeight | sets the height of the edittext inside pin view |
-| app:pinWidth | sets the width of the edittext inside pin view |
-| app:splitWidth | sets the width of the edittext outside pin view |
-| app:pinLength | set number of edittext of pin view |
-| app:pinTextSize | set edittext font size pin view |
 
 ## Min SDK Version
 
