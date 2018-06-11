@@ -21,7 +21,7 @@ Step 2
 
 ```
 dependencies {
-   implementation 'com.github.SunryTeang:valiation:1.2'
+    implementation 'com.github.SunryTeang:valiation:1.0.1'
 }
 ```
 
