@@ -28,6 +28,8 @@
         app:pinHeight="40dp"
         app:pinLength="4"
         app:pinTextColor="@android:color/black"
+        app:pinTextColorHint="@color/colorPrimaryDark"
+        app:pinTextSize="8sp"
         app:pinWidth="50dp" />
 
 </LinearLayout>

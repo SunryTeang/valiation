@@ -53,6 +53,8 @@ public class PinviewCode extends LinearLayout implements TextWatcher, View.OnFoc
     private int mPinBackground = R.drawable.simple_backgound;
 
     private int mPinTextColors = R.color.defualt_text_pin;
+    private int mPinTextColorsHint = R.color.default_text_hint_color;
+    private int textSize = 0;
 
     private boolean mPassword = false;
     private String mHint = "";
@@ -176,6 +178,8 @@ public class PinviewCode extends LinearLayout implements TextWatcher, View.OnFoc
             final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.PinviewCode, defStyleAttr, 0);
             mPinBackground = array.getResourceId(R.styleable.PinviewCode_pinBackground, Color.TRANSPARENT);
             mPinTextColors = array.getColor(R.styleable.PinviewCode_pinTextColor, Color.BLACK);
+            mPinTextColorsHint = array.getColor(R.styleable.PinviewCode_pinTextColorHint, R.color.default_text_hint_color);
+            textSize = array.getDimensionPixelSize(R.styleable.PinviewCode_pinTextSize, 0);
             mPinLength = array.getInt(R.styleable.PinviewCode_pinLength, mPinLength);
             mPinHeight = (int) array.getDimension(R.styleable.PinviewCode_pinHeight, mPinHeight);
             mPinWidth = (int) array.getDimension(R.styleable.PinviewCode_pinWidth, mPinWidth);
@@ -205,7 +209,8 @@ public class PinviewCode extends LinearLayout implements TextWatcher, View.OnFoc
         styleEditText.setLayoutParams(params);
         styleEditText.setGravity(Gravity.CENTER);
         styleEditText.setCursorVisible(mCursorVisible);
-
+        styleEditText.setHintTextColor(mPinTextColorsHint);
+        styleEditText.setTextSize((float) textSize);
         if (!mCursorVisible) {
             styleEditText.setClickable(false);
             styleEditText.setHint(mHint);
@@ -407,6 +412,20 @@ public class PinviewCode extends LinearLayout implements TextWatcher, View.OnFoc
                 }, delay);
             } else {
                 //Last Pin box has been reached.
+
+                long delay = 1;
+                if (mPassword)
+                    delay = 25;
+                this.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        EditText nextEditText = editTextList.get(currentTag - 1);
+                        nextEditText.setEnabled(false);
+                        nextEditText.requestFocus();
+                    }
+                }, delay);
+
+
             }
             if (currentTag == mPinLength - 1 && inputType == InputType.NUMBER || currentTag == mPinLength - 1 && mPassword) {
                 finalNumberPin = true;

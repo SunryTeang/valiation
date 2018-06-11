@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="defualt_text_pin">#000000</color>
+    <color name="default_text_hint_color">#263238</color>
 </resources>
